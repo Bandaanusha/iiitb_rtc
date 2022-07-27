@@ -1,17 +1,20 @@
+`timescale 1s/1ms
 module iiitb_rtc_tb;
-reg clk,rst;
-wire [6:0] HR_M,HR_L,MIN_M,MIN_L,SEC_M,SEC_L;
-RTDC dut(rst, clk, SEC_M,SEC_L,MIN_M,MIN_L,HR_M,HR_L);
-initial begin
-clk=0;
-rst=1;
-#10 rst=0;
-#500 Sfinish();
-end
-always #10 clk=~clk;
-initial begin
-Sdumpfile("dump.vcd");
-Sdumpvars;
-end
+ reg clk,rst;
+ wire [3:0]hrm,hrl,minm,minl,secm,secl;
 
+ iiitb_rtc r1(.clk_1hz(clk),.rst(rst),.hrm(hrm),.hrl(hrl),.minm(minm),.minl(minl),.secm(secm),.secl(secl)); 
+ 
+ always #0.5 clk=~clk;
+
+ initial begin
+
+  $dumpfile("iiitb_rtc_out.vcd");
+  $dumpvars(0,iiitb_rtc_tb);
+  clk=0;rst=0;
+  #2 rst=1;
+  #99980 rst=0;
+  
+  #100 $finish;
+ end
 endmodule
