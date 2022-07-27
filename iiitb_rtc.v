@@ -1,4 +1,4 @@
-module RTDC(
+module iiitb_rtc(
     input rst,clk,output reg [6:0] HR_M,HR_L,.MIN_M,MIN_LSEC_M,SEC_L
     );
 reg[3:0] count1,count2,count3,count4,count5,count6;
