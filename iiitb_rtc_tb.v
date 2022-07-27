@@ -1,4 +1,4 @@
-module test;
+module iiitb_rtc_tb;
 reg clk,rst;
 wire [6:0] HR_M,HR_L,MIN_M,MIN_L,SEC_M,SEC_L;
 RTDC dut(rst, clk, SEC_M,SEC_L,MIN_M,MIN_L,HR_M,HR_L);
