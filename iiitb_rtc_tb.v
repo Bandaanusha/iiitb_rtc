@@ -2,7 +2,7 @@
 module iiitb_rtc_tb;
 reg clk,rst;
 wire [3:0]hrm,hrl,minm,minl,secm,secl;
-iiitb_rtc r1(.clk_1hz(clk),.rst(rst),.hrm(hrm),.hrl(hrl),.minm(minm),.minl(minl),.secm(secm),.secl(secl)); 
+iiitb_rtc r1(.clk(clk),.rst(rst),.hrm(hrm),.hrl(hrl),.minm(minm),.minl(minl),.secm(secm),.secl(secl)); 
 always #10 clk=~clk;
 initial begin
 $dumpfile("iiitb_rtc_out.vcd");
