@@ -10,6 +10,6 @@ $dumpvars(0,iiitb_rtc_tb);
 clk=0;rst=0;
 #2 rst=0;
 #99980 rst=1;
-#100 $finish;
+#2000000000 $finish;
 end
 endmodule
