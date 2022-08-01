@@ -1,16 +1,17 @@
 module iiitb_rtc (
-input clk_1hz,rst,
+input clk,rst,
 output [3:0]hrm,hrl,minm,minl,secm,secl);
 
 wire [3:0]hrms,hrls,minms,minls,secms,secls;
 wire hrclr;
 assign hrclr = ((secl==4'd9) && (secm==4'd5) && (minl==4'd9) && (minm==4'd5) && (hrl==4'd3) && (hrm==4'd2));
-counter #(9) c1(.clk_1hz(clk_1hz),.rst(rst),.clr(1'b0),.en(1'b1),.count(secl));
-counter #(5) c2(.clk_1hz(clk_1hz),.rst(rst),.clr(1'b0),.en(secl==4'd9),.count(secm));
-counter #(9) c3(.clk_1hz(clk_1hz),.rst(rst),.clr(1'b0),.en((secl==4'd9) && (secm==4'd5)),.count(minl));
-counter #(5) c4(.clk_1hz(clk_1hz),.rst(rst),.clr(1'b0),.en((secl==4'd9) && (secm==4'd5) && (minl==4'd9)),.count(minm));
-counter #(9) c5(.clk_1hz(clk_1hz),.rst(rst),.clr(hrclr),.en((secl==4'd9) && (secm==4'd5) && (minl==4'd9) && (minm==4'd5)),.count(hrl));
-counter #(2) c6(.clk_1hz(clk_1hz),.rst(rst),.clr(hrclr),.en((secl==4'd9) && (secm==4'd5) && (minl==4'd9) && (minm==4'd5) && (hrl==4'd9)),.count(hrm));
+clock_div cd(clk,rst,clk_100hz);
+counter #(9) c1(.clk_1hz(clk_100hz),.rst(rst),.clr(1'b0),.en(1'b1),.count(secl));
+counter #(5) c2(.clk_1hz(clk_100hz),.rst(rst),.clr(1'b0),.en(secl==4'd9),.count(secm));
+counter #(9) c3(.clk_1hz(clk_100hz),.rst(rst),.clr(1'b0),.en((secl==4'd9) && (secm==4'd5)),.count(minl));
+counter #(5) c4(.clk_1hz(clk_100hz),.rst(rst),.clr(1'b0),.en((secl==4'd9) && (secm==4'd5) && (minl==4'd9)),.count(minm));
+counter #(9) c5(.clk_1hz(clk_100hz),.rst(rst),.clr(hrclr),.en((secl==4'd9) && (secm==4'd5) && (minl==4'd9) && (minm==4'd5)),.count(hrl));
+counter #(2) c6(.clk_1hz(clk_100hz),.rst(rst),.clr(hrclr),.en((secl==4'd9) && (secm==4'd5) && (minl==4'd9) && (minm==4'd5) && (hrl==4'd9)),.count(hrm));
 endmodule
 
 module counter #(parameter max_value=15) (
@@ -30,5 +31,31 @@ if(count==max_value) count<=4'd0;
 else count<=count+1;
 else count<=count;
 end
+end
+endmodule
+
+module clock_div(ClkIn,rst,Clk100);
+input ClkIn;
+input rst;
+output reg Clk100;
+reg [3:0] clk_div=4'b0;
+reg [13:0] clk_div100=14'b0;
+initial
+begin
+Clk100=0;
+end
+always @(posedge ClkIn)
+begin
+clk_div = clk_div + 4'b1;
+end
+always @(posedge clk_div[3])
+begin
+if (rst == 1'b1 & clk_div100 == 14'b11110100001001)
+begin
+clk_div100 = 14'b0;
+Clk100 = ~Clk100;
+end
+else
+clk_div100 = clk_div100 + 19'b1;
 end
 endmodule
