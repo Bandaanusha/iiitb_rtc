@@ -5,7 +5,7 @@ module iiitb_rtc_tb;
 
  iiitb_rtc r1(.clk_1hz(clk),.rst(rst),.hrm(hrm),.hrl(hrl),.minm(minm),.minl(minl),.secm(secm),.secl(secl)); 
  
- always #0.5 clk=~clk;
+ always #10 clk=~clk;
 
  initial begin
 
