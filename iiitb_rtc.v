@@ -5,7 +5,7 @@ output [3:0]hrm,hrl,minm,minl,secm,secl);
 wire [3:0]hrms,hrls,minms,minls,secms,secls;
 wire hrclr;
 assign hrclr = ((secl==4'd9) && (secm==4'd5) && (minl==4'd9) && (minm==4'd5) && (hrl==4'd3) && (hrm==4'd2));
-clock_div cd(clk,clk_100hz);
+	clock_div cd(clk,rst,clk_100hz);
 counter #(9) c1(.clk_1hz(clk_100hz),.rst(rst),.clr(1'b0),.en(1'b1),.count(secl));
 counter #(5) c2(.clk_1hz(clk_100hz),.rst(rst),.clr(1'b0),.en(secl==4'd9),.count(secm));
 counter #(9) c3(.clk_1hz(clk_100hz),.rst(rst),.clr(1'b0),.en((secl==4'd9) && (secm==4'd5)),.count(minl));
@@ -33,7 +33,7 @@ else count<=count;
 end
 end
 endmodule
-/*
+
 module clock_div(ClkIn,rst,Clk100);
 input ClkIn;
 input rst;
@@ -59,40 +59,5 @@ else
 clk_div100 = clk_div100 + 19'b1;
 end
 endmodule
-*/
-module clock_div(clkin,clkout);
-     input clkin;
-     output clkout;
-     real t0;
-     real t1;
-     real freq;
-     reg [63:0]pc=0;
-     reg [63:0]nc=0;
 
 
-     initial
-          begin
-               @ (posedge clkin) t0 = $realtime;
-               @ (posedge clkin) t1 = $realtime;
-               freq = 1.0e9 / (t1 - t0);
-          end
-
-always@(posedge clkin)
-begin
-  if(pc<(freq-1))
-	pc<=pc+1;
-  else
-	pc<=0;
-end
-
-always@(negedge clkin)
-begin
-  if(nc<(freq-1))
-	nc<=nc+1;
-  else
-	nc<=0;
-end
-
-assign clkout=(freq%2==0)?(pc<freq/2):((pc<(freq/2)+1)&&(nc<(freq/2)+1));
-
-endmodule
