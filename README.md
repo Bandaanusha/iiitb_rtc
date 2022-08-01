@@ -8,8 +8,8 @@ This is a real time clock, an integrated circuit, provides time to the microcont
 ![rtcbd](https://user-images.githubusercontent.com/62790565/182115123-63560f80-b4f1-4b97-bdb6-4fae3914aadc.PNG)
 
 ### Implementation
-#### Installation of Icarus Verilog (iVerilog) and GTKwave on ubuntu.
-Open terminal and type the following commands to install iverilog and GTKwave
+#### Installation of Icarus Verilog (iVerilog) and GTKwave on ubuntu
+Open terminal and type the following commands to install iverilog and GTKwave.
 ```
 $ sudo add-apt-repository ppa:team-electronics/ppa 
 $ sudo apt-get update 
