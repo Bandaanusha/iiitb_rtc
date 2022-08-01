@@ -6,8 +6,8 @@ read_verilog iiitb_rtc.v
 synth -top iiitb_rtc
 
 # mapping to mycells.lib
-dfflibmap -liberty /usr/local/share/qflow/tech/osu018/osu018_stdcells.lib
-abc -liberty /usr/local/share/qflow/tech/osu018/osu018_stdcells.lib
+dfflibmap -liberty /home/anusha/iiitb_rtc/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty /home/anusha/iiitb_rtc/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 clean
 flatten
 # write synthesized design
