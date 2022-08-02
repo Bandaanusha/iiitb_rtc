@@ -3,7 +3,7 @@ input clk,rst,
 output [3:0]hrm,hrl,minm,minl,secm,secl);
 wire [3:0]hrms,hrls,minms,minls,secms,secls;
 wire hrclr;
-reg second_clk;
+reg second_clk=0;
 reg [5:0] sec_count = 6'b000000;
 wire hundred_clk;
 assign hrclr = ((secl==4'd9) && (secm==4'd5) && (minl==4'd9) && (minm==4'd5) && (hrl==4'd3) && (hrm==4'd2));
@@ -11,7 +11,6 @@ clock_div cd(clk,rst,hundred_clk);
 always @(posedge hundred_clk or posedge rst) begin
 if (rst ==0) begin
 sec_count <= 6'b000000;
-second_clk=0;
 end else begin
 if (rst & sec_count == 6'b110001) begin
 sec_count <= 6'b000000;
