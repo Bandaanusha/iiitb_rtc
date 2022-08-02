@@ -1,7 +1,6 @@
 module iiitb_rtc (
 input clk,rst,
 output [3:0]hrm,hrl,minm,minl,secm,secl);
-
 wire [3:0]hrms,hrls,minms,minls,secms,secls;
 wire hrclr;
 reg second_clk;
