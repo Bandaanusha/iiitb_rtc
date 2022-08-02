@@ -5,10 +5,9 @@ wire [3:0]hrms,hrls,minms,minls,secms,secls;
 wire hrclr;
 reg second_clk=0;
 reg [5:0] sec_count = 6'b000000;
-wire hundred_clk;
 assign hrclr = ((secl==4'd9) && (secm==4'd5) && (minl==4'd9) && (minm==4'd5) && (hrl==4'd3) && (hrm==4'd2));
-clock_div cd(clk,rst,hundred_clk);
-always @(posedge hundred_clk or posedge rst) begin
+  clock_div cd(clk,rst,second_clk);
+/*always @(posedge hundred_clk or posedge rst) begin
 if (rst ==0) begin
 sec_count <= 6'b000000;
 end else begin
@@ -20,7 +19,7 @@ else
 sec_count <= sec_count + 1;
 end
 end
-
+*/
 counter #(9) c1(.second_clk(second_clk),.rst(rst),.clr(1'b0),.en(1'b1),.count(secl));
 counter #(5) c2(.second_clk(second_clk),.rst(rst),.clr(1'b0),.en(secl==4'd9),.count(secm));
 counter #(9) c3(.second_clk(second_clk),.rst(rst),.clr(1'b0),.en((secl==4'd9) && (secm==4'd5)),.count(minl));
