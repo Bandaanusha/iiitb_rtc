@@ -31,12 +31,12 @@ counter #(2) c6(.second_clk(second_clk),.rst(rst),.clr(hrclr),.en((secl==4'd9) &
 endmodule
 
 module counter #(parameter max_value=15) (
-input clk_1hz,rst,clr,en,
+input second_clk,rst,clr,en,
 output reg [3:0] count);
 initial
 
 count=4'b0;
-always @(posedge clk_1hz)
+always @(posedge second_clk)
 begin
 if(rst==0) count <=4'd0;
 else if(clr==1) count<=4'd0;
