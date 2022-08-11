@@ -7,8 +7,8 @@ initial begin
 $dumpfile("iiitb_rtc_out.vcd");
 $dumpvars(0,iiitb_rtc_tb);
 clk=0;rst=0;
-#2 rst=0;
-#99980 rst=1;
+#1 rst=0;
+#2 rst=1;
 end
 always #0.01 clk=~clk;
 endmodule
