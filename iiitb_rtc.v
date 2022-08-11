@@ -9,7 +9,7 @@ clock_div cd(clk,rst,hundred_clk);
 counter #(9) c1(.hundred_clk(hundred_clk),.rst(rst),.clr(1'b0),.en(1'b1),.count(secl));
 counter #(5) c2(.hundred_clk(hundred_clk),.rst(rst),.clr(1'b0),.en(secl==4'd9),.count(secm));
 counter #(9) c3(.hundred_clk(hundred_clk),.rst(rst),.clr(1'b0),.en((secl==4'd9) && (secm==4'd5)),.count(minl));
-counter #(5) c4(.hundred_clk(hundred_clk)),.rst(rst),.clr(1'b0),.en((secl==4'd9) && (secm==4'd5) && (minl==4'd9)),.count(minm));
+counter #(5) c4(.hundred_clk(hundred_clk),.rst(rst),.clr(1'b0),.en((secl==4'd9) && (secm==4'd5) && (minl==4'd9)),.count(minm));
 counter #(9) c5(.hundred_clk(hundred_clk),.rst(rst),.clr(hrclr),.en((secl==4'd9) && (secm==4'd5) && (minl==4'd9) && (minm==4'd5)),.count(hrl));
 counter #(2) c6(.hundred_clk(hundred_clk),.rst(rst),.clr(hrclr),.en((secl==4'd9) && (secm==4'd5) && (minl==4'd9) && (minm==4'd5) && (hrl==4'd9)),.count(hrm));
 endmodule
