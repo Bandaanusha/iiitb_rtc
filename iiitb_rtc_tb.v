@@ -1,4 +1,4 @@
-`timescale 1us/10ns
+`timescale 1ms/1us
 module iiitb_rtc_tb;
 reg clk,rst;
 wire [3:0]hrm,hrl,minm,minl,secm,secl;
@@ -10,5 +10,5 @@ clk=0;rst=0;
 #1 rst=0;
 #2 rst=1;
 end
-always #0.01 clk=~clk;
+always #0.00001 clk=~clk;
 endmodule
