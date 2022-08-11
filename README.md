@@ -27,7 +27,8 @@ $ gtkwave iiitb_rtc_out.vcd
 ```
 
 #### Simulation Waveforms
-![iiitb_rtc_output_waveform](https://user-images.githubusercontent.com/62790565/181303117-9da92814-20e7-4b28-b0ac-55b03bb8a11e.PNG)
+
+![RTC-s1](https://user-images.githubusercontent.com/62790565/184216195-592383a1-a3e4-4df2-aabd-00a4c2cf28fd.png)
 
 ### Synthesis
 Synthesis transforms the simple RTL design into a gate-level netlist with all the constraints as specified by the designer. In simple language, Synthesis is a process that converts the abstract form of design to a properly implemented chip in terms of logic gates. Yosys is a framework for Verilog RTL synthesis.
@@ -42,6 +43,12 @@ $ sudo make install
 
 #### To synthesize the design, Enter the following commands in your terminal
 ```
+> read_liberty -lib /home/anusha/iiitb_rtc/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+> read_verilog iiitb_rtc.v
+> synth -top iiitb_rtc
+> dfflibmap -liberty /home/anusha/iiitb_rtc/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+> abc -liberty /home/anusha/iiitb_rtc/lib/sky130_fd_sc_hd__tt_025C_1v80.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{
+> write_verilog iiitb_rtc_netlist.v
 ```
 
 ### Gate Level Simulation
@@ -49,10 +56,15 @@ GLS is generating the simulation output by running test bench with netlist file 
 
 #### To Simulate results, Enter the following commands in your terminal
 ```
+$ iverilog /home/anusha/iiitb_rtc/verilog_model/primitives.v /home/anusha/iiitb_rtc/verilog_model/sky130_fd_sc_hd.v iiitb_rtc_netlist.v iiitb_rtc_tb.v
+$ ./a.out
+$ gtkwave iiitb_rtc_out.vcd
 ```
 
 ### Simulation Waveforms
-Pre - synthesis simulation waveform: 
+Pre - synthesis simulation waveform:
+![RTC-s1](https://user-images.githubusercontent.com/62790565/184216270-db2f3d00-9588-4402-8d99-2f25ec4d2b9b.png)
+
 Post - synthesis simulation waveform:
 
 ## Contributors
