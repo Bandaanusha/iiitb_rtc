@@ -1,4 +1,4 @@
-`timescale 1ms/1us
+`timescale 1ns/1ps
 module iiitb_rtc_tb;
 reg clk,rst;
 wire [3:0]hrm,hrl,minm,minl,secm,secl;
@@ -7,8 +7,8 @@ initial begin
 $dumpfile("iiitb_rtc_out.vcd");
 $dumpvars(0,iiitb_rtc_tb);
 clk=0;rst=0;
-#1 rst=0;
-#2 rst=1;
+#2 rst=0;
+#99980 rst=1;
 end
-always #0.00001 clk=~clk;
+always #10 clk=~clk;
 endmodule
