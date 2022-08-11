@@ -5,9 +5,9 @@ This is a real time clock, an integrated circuit, provides time to the microcont
 
 ### Block diagram
 
-![rtcbd](https://user-images.githubusercontent.com/62790565/182328119-39e0d345-7e0e-4f39-8f5f-e0862b8c80a2.PNG)
+![rtcbd](https://user-images.githubusercontent.com/62790565/184196172-5bb0eee9-9785-4821-b242-71568a29f803.PNG)
 
-### Implementation
+### RTL Simulation
 #### Installation of Icarus Verilog (iVerilog) and GTKwave on ubuntu
 Open terminal and type the following commands to install iverilog and GTKwave.
 ```
@@ -15,6 +15,7 @@ $ sudo add-apt-repository ppa:team-electronics/ppa
 $ sudo apt-get update 
 $ sudo apt-get install iverilog gtkwave
 ```
+
 #### To clone the repository,simulate the results, Enter the following commands in your terminal :
 ```
 $ git clone https://github.com/Bandaanusha/iiitb_rtc
@@ -24,15 +25,50 @@ $ vvp iiitb_rtc_out.out
 $ iverilog iiitb_rtc.v  iiitb_rtc_tb.v
 $ gtkwave iiitb_rtc_out.vcd
 ```
-### Simulation Waveforms
+
+#### Simulation Waveforms
 ![iiitb_rtc_output_waveform](https://user-images.githubusercontent.com/62790565/181303117-9da92814-20e7-4b28-b0ac-55b03bb8a11e.PNG)
+
+### Synthesis
+Synthesis transforms the simple RTL design into a gate-level netlist with all the constraints as specified by the designer. In simple language, Synthesis is a process that converts the abstract form of design to a properly implemented chip in terms of logic gates. Yosys is a framework for Verilog RTL synthesis.
+
+#### Installation of yosys on Ubuntu
+Open the terminal and type the following commands to install yosys
+```
+$ sudo apt-get install build-essential clang bison flex \ libreadline-dev gawk tcl-dev libffi-dev git \ graphviz xdot pkg-config python3 libboost-system-dev \ libboost-python-dev libboost-filesystem-dev zlib1g-dev
+$ make
+$ sudo make install
+```
+
+#### To synthesize the design, Enter the following commands in your terminal
+```
+```
+
+### Gate Level Simulation
+GLS is generating the simulation output by running test bench with netlist file generated from synthesis as design under test. Netlist is logically same as RTL code, therefore, same test bench can be used for it.
+
+#### To Simulate results, Enter the following commands in your terminal
+```
+```
+
+### Simulation Waveforms
+Pre - synthesis simulation waveform: 
+Post - synthesis simulation waveform:
+
 ## Contributors
 - Banda Anusha
 - Kunal Ghosh
+- 
 ## Acknowledgements
 - Kunal Ghosh, Director, VSD Corp. Pvt. Ltd.
 - Dantu Nandini Devi, Postgraduate Student, International Institute of Information Technology, Bangalore.
+- 
 ## Contact Information
 - Banda Anusha, Postgraduate Student, International Institute of Information Technology, Bangalore Banda.Anusha@iiitb.ac.in
 - Dantu Nandini Devi, Postgraduate Student, International Institute of Information Technology, Bangalore nandini.dantu@gmail.com
 - Kunal Ghosh, Director, VSD Corp. Pvt. Ltd. kunalghosh@gmail.com
+
+## References
+- Real-Time Clocks (RTCC) ,Microchip technology,  https://www.microchip.com/en-us/products/clock-and-timing/components/real-time-clocks.
+- RTC Verilog Code - Elecdude, www.elecdude.com.
+
