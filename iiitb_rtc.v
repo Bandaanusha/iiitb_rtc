@@ -41,20 +41,20 @@ reg [3:0] clk_div=4'b0;
 reg [13:0] clk_div100=14'b0;
 initial
 begin
-Clk100=0;
+Clk100 <=0;
 end
 always @(posedge ClkIn)
 begin
-clk_div = clk_div + 4'b1;
+clk_div <= clk_div + 4'b1;
 end
 always @(posedge clk_div[3])
 begin
 if (rst == 1'b1 & clk_div100 == 14'b11110100001001)
 begin
-clk_div100 = 14'b0;
-Clk100 = ~Clk100;
+clk_div100 <= 14'b0;
+Clk100 <= ~Clk100;
 end
 else
-clk_div100 = clk_div100 + 19'b1;
+clk_div100 <= clk_div100 + 19'b1;
 end
 endmodule
