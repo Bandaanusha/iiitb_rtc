@@ -60,7 +60,7 @@ if (rst == 1'b1 & clk_div100 == 14'b11110100001001)
 begin
 clk_div100 <= 14'b0;
 Clk100 <= ~Clk100; 
+end
 else
 clk_div100 <= clk_div100 + 19'b1;
-end
 endmodule
