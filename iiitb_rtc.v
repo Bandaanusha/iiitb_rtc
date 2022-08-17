@@ -45,6 +45,7 @@ Clk100 <=0;
 end
 always @(posedge ClkIn)
 begin
+if(rst==1)
 clk_div <= clk_div + 4'b1;
 else
 begin
