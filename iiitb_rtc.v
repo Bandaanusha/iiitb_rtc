@@ -46,14 +46,19 @@ end
 always @(posedge ClkIn)
 begin
 clk_div <= clk_div + 4'b1;
+else
+begin
+Clk100<=0;
+clk_div<=0;
+clk_div100<=0;
+end
 end
 always @(posedge clk_div[3])
 begin
 if (rst == 1'b1 & clk_div100 == 14'b11110100001001)
 begin
 clk_div100 <= 14'b0;
-Clk100 <= ~Clk100;
-end
+Clk100 <= ~Clk100; 
 else
 clk_div100 <= clk_div100 + 19'b1;
 end
