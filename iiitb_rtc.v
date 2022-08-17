@@ -38,7 +38,7 @@ input ClkIn;
 input rst;
 output reg Clk100;
 reg [13:0] clk_div100=14'b0;
-reg [3:0] clk_div=4'b0;  
+reg [3:0] div_clk=4'b0;  
 initial
 begin
 Clk100 <=0;
@@ -46,15 +46,15 @@ end
 always @(posedge ClkIn)
 begin
 if(rst==1)
-clk_div <= clk_div + 4'b1;
+div_clk <= div_clk + 4'b1;
 else
 begin
 Clk100 <=0;
-clk_div <=0;
+div_clk <=0;
 clk_div100 <=0;
 end
 end
-always @(posedge clk_div[3])
+always @(posedge div_clk[3])
 begin
 if (rst == 1'b1 & clk_div100 == 14'b11110100001001)
 begin
