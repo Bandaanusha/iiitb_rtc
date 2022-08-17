@@ -63,4 +63,5 @@ Clk100 <= ~Clk100;
 end
 else
 clk_div100 <= clk_div100 + 19'b1;
+end
 endmodule
