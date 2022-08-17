@@ -48,9 +48,9 @@ begin
 clk_div <= clk_div + 4'b1;
 else
 begin
-Clk100<=0;
-clk_div<=0;
-clk_div100<=0;
+Clk100 <=0;
+clk_div <=0;
+clk_div100 <=0;
 end
 end
 always @(posedge clk_div[3])
