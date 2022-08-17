@@ -37,8 +37,8 @@ module clock_div(ClkIn,rst,Clk100);
 input ClkIn;
 input rst;
 output reg Clk100;
-reg [3:0] clk_div=4'b0;
 reg [13:0] clk_div100=14'b0;
+reg [3:0] clk_div=4'b0;  
 initial
 begin
 Clk100 <=0;
