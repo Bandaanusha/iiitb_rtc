@@ -28,7 +28,7 @@ $ gtkwave iiitb_rtc_out.vcd
 
 #### Simulation Waveforms
 
-![RTC-s1](https://user-images.githubusercontent.com/62790565/184216195-592383a1-a3e4-4df2-aabd-00a4c2cf28fd.png)
+![presyn](https://user-images.githubusercontent.com/62790565/185417571-75588e39-bbb1-4bf9-929b-20d38ed4f25f.png)
 
 ### Synthesis
 Synthesis transforms the simple RTL design into a gate-level netlist with all the constraints as specified by the designer. In simple language, Synthesis is a process that converts the abstract form of design to a properly implemented chip in terms of logic gates. Yosys is a framework for Verilog RTL synthesis.
@@ -63,9 +63,12 @@ $ gtkwave iiitb_rtc_out.vcd
 
 ### Simulation Waveforms
 Pre - synthesis simulation waveform:
-![RTC-s1](https://user-images.githubusercontent.com/62790565/184216270-db2f3d00-9588-4402-8d99-2f25ec4d2b9b.png)
+
+![presyn](https://user-images.githubusercontent.com/62790565/185417571-75588e39-bbb1-4bf9-929b-20d38ed4f25f.png)
 
 Post - synthesis simulation waveform:
+
+![postsyn](https://user-images.githubusercontent.com/62790565/185417781-3eed70b0-5d92-44cd-92e6-99133e8887e7.png)
 
 ## Contributors
 - Banda Anusha
