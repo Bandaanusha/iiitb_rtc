@@ -1,6 +1,6 @@
 {
     "DESIGN_NAME": "rtc",
-    "VERILOG_FILES": "dir::src/picorv32a.v",
+    "VERILOG_FILES": "dir::src/iiitb_rtc.v",
     "CLOCK_PORT": "clk",
     "CLOCK_NET": "clk",
     "GLB_RESIZER_TIMING_OPTIMIZATIONS": true,
