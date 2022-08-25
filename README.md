@@ -70,10 +70,14 @@ Post - synthesis simulation waveform:
 
 ![postsyn](https://user-images.githubusercontent.com/62790565/185417781-3eed70b0-5d92-44cd-92e6-99133e8887e7.png)
 
+### Physical Design
+#### Final Layout
+![Screenshot from 2022-08-25 15-09-40](https://user-images.githubusercontent.com/62790565/186632010-3d560626-15c9-40d9-8df4-679b5db0388e.png)
+
 ## Contributors
 - Banda Anusha
 - Kunal Ghosh
-- 
+
 ## Acknowledgements
 - Kunal Ghosh, Director, VSD Corp. Pvt. Ltd.
 - Dantu Nandini Devi, Postgraduate Student, International Institute of Information Technology, Bangalore.
