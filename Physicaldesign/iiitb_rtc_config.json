@@ -1,5 +1,5 @@
 {
-    "DESIGN_NAME": "rtc",
+    "DESIGN_NAME": "iiitb_rtc",
     "VERILOG_FILES": "dir::src/iiitb_rtc.v",
     "CLOCK_PORT": "clk",
     "CLOCK_NET": "clk",
