@@ -71,6 +71,81 @@ Post - synthesis simulation waveform:
 ![postsyn](https://user-images.githubusercontent.com/62790565/185417781-3eed70b0-5d92-44cd-92e6-99133e8887e7.png)
 
 ### Physical Design
+#### Tool Installation
+##### Installation of Python3
+```
+$ sudo apt install -y build-essential python3 python3-venv python3-pip
+```
+##### Installation of Docker
+```
+$ sudo apt-get remove docker docker-engine docker.io containerd runc (removes older version of docker if installed)
+$ sudo apt-get update
+$ sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release    
+$ sudo mkdir -p /etc/apt/keyrings
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+$ echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null  
+$ sudo apt-get update
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+$ apt-cache madison docker-ce (copy the version string you want to install)
+$ sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io docker-compose-plugin (paste the version string copies in place of <VERSION_STRING>)
+$ sudo docker run hello-world (If the docker is successfully installed u will get a success message here)
+```
+##### Installation of OpenLane on ubuntu
+```
+$ git clone https://github.com/The-OpenROAD-Project/OpenLane.git
+$ cd OpenLane/
+$ make
+$ make test
+```
+##### Installation of magic on ubuntu
+Additional packages to be installed as a part of system requirements to compile magic before magic installation.<br>
+####### Installing M4 preprocessor
+```
+sudo apt-get install m4
+```
+####### Installing tcsh shell
+```
+$ sudo apt-get install tcsh
+```
+####### Installing csh shell
+```
+$ sudo apt-get install csh 
+```
+####### Installing Xlib.h
+```
+$ sudo apt-get install libx11-dev
+```
+####### Installing Tcl/Tk
+```
+$ sudo apt-get install tcl-dev tk-dev
+```
+####### Imstalling Cairo
+```
+$ sudo apt-get install libcairo2-dev
+```
+####### Installing OpenGL
+```
+$ sudo apt-get install mesa-common-dev libglu1-mesa-dev
+```
+####### Installing ncurses
+```
+$ sudo apt-get install libncurses-dev
+```
+####### Installing Magic
+```
+$ git clone https://github.com/RTimothyEdwards/magic
+$ cd magic
+$ ./configure
+$ make
+$ make install
+```
+
 #### Final Layout
 ![Screenshot from 2022-08-25 15-09-40](https://user-images.githubusercontent.com/62790565/186632010-3d560626-15c9-40d9-8df4-679b5db0388e.png)
 
