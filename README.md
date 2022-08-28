@@ -105,39 +105,39 @@ $ make test
 ```
 ##### Installation of magic on ubuntu
 Additional packages to be installed as a part of system requirements to compile magic before magic installation.<br>
-####### Installing M4 preprocessor
+###### Installing M4 preprocessor
 ```
 sudo apt-get install m4
 ```
-####### Installing tcsh shell
+###### Installing tcsh shell
 ```
 $ sudo apt-get install tcsh
 ```
-####### Installing csh shell
+###### Installing csh shell
 ```
 $ sudo apt-get install csh 
 ```
-####### Installing Xlib.h
+###### Installing Xlib.h
 ```
 $ sudo apt-get install libx11-dev
 ```
-####### Installing Tcl/Tk
+###### Installing Tcl/Tk
 ```
 $ sudo apt-get install tcl-dev tk-dev
 ```
-####### Imstalling Cairo
+###### Imstalling Cairo
 ```
 $ sudo apt-get install libcairo2-dev
 ```
-####### Installing OpenGL
+###### Installing OpenGL
 ```
 $ sudo apt-get install mesa-common-dev libglu1-mesa-dev
 ```
-####### Installing ncurses
+###### Installing ncurses
 ```
 $ sudo apt-get install libncurses-dev
 ```
-####### Installing Magic
+###### Installing Magic
 ```
 $ git clone https://github.com/RTimothyEdwards/magic
 $ cd magic
@@ -145,6 +145,36 @@ $ ./configure
 $ make
 $ make install
 ```
+##### Installing Klayout
+```
+$ sudo apt-get install klayout
+```
+#### Execution
+```
+$ cd OpenLane
+$ cd designs
+$ mkdir iiitb_rtc
+$ mkdir src
+$ cd src 
+$ touch iiitb_rtc.v
+$ cd ../
+$ touch config.json
+Creating Standard cell Layout and converting magic layout to standard cell lef and include new cell lef and library files to design
+```
+$ cd OpenLane
+$ git clone https://github.com/nickson-jose/vsdstdcelldesign
+$ cd vsdstdcelldesign
+$ magic -T sky130A.tech sky130_inv.mag & 
+```
+sky130_inv Layout
+
+![invmag](https://user-images.githubusercontent.com/62790565/187076922-0870f887-665d-4c0c-a8bb-4b9d8ad87e96.png)
+
+Label and define ports
+
+![portlabel](https://user-images.githubusercontent.com/62790565/187076851-4c7afd6d-07fe-4543-b95d-40d7a3f233d0.png)
+
+![setports](https://user-images.githubusercontent.com/62790565/187076879-ab61b00e-6324-490a-91bf-65079918e676.png)
 
 #### Final Layout
 ![Screenshot from 2022-08-25 15-09-40](https://user-images.githubusercontent.com/62790565/186632010-3d560626-15c9-40d9-8df4-679b5db0388e.png)
