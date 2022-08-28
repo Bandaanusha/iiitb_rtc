@@ -150,6 +150,7 @@ $ make install
 $ sudo apt-get install klayout
 ```
 #### Execution
+Creating iiitb_rtc design file in openlane directory
 ```
 $ cd OpenLane
 $ cd designs
@@ -159,23 +160,45 @@ $ cd src
 $ touch iiitb_rtc.v
 $ cd ../
 $ touch config.json
-Creating Standard cell Layout and converting magic layout to standard cell lef and include new cell lef and library files to design
+```
+Including sky130_vsdinv cell to the design
 ```
 $ cd OpenLane
-$ git clone https://github.com/nickson-jose/vsdstdcelldesign
 $ cd vsdstdcelldesign
-$ magic -T sky130A.tech sky130_inv.mag & 
+$ cp sky130_vsdinv.lef /home/anusha/OpenLane/designs/iiitb_rtc/src
+$ cd libs
+$ cp sky130_fd_sc_hd__* /home/anusha/OpenLane/designs/iiitb_rtc/src
 ```
-sky130_inv Layout
-
-![invmag](https://user-images.githubusercontent.com/62790565/187076922-0870f887-665d-4c0c-a8bb-4b9d8ad87e96.png)
-
-Label and define ports
-
-![portlabel](https://user-images.githubusercontent.com/62790565/187076851-4c7afd6d-07fe-4543-b95d-40d7a3f233d0.png)
-
-![setports](https://user-images.githubusercontent.com/62790565/187076879-ab61b00e-6324-490a-91bf-65079918e676.png)
-
+Invoking openlane tcl console
+```
+$ cd OpenLane
+$ ./flow.tcl -interactive
+```
+In tcl console commnd to load openlane package
+```
+% package require openlane 0.9
+```
+Preparing design
+```
+% prep -design iiitb_rtc
+``` 
+The following commands are to merge external the lef files to the merged.nom.lef. In our case sky130_vsdiat is getting merged to the lef file
+```
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+```
+Synthesising design
+```
+% run_synthesis
+```
+Floorplan
+```
+% run_floorplan
+```
+Placement
+```
+% run_placement
+```
 #### Final Layout
 ![Screenshot from 2022-08-25 15-09-40](https://user-images.githubusercontent.com/62790565/186632010-3d560626-15c9-40d9-8df4-679b5db0388e.png)
 
