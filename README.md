@@ -149,7 +149,7 @@ $ make install
 ```
 $ sudo apt-get install klayout
 ```
-#### Execution
+#### Design Preparation
 Creating iiitb_rtc design file in openlane directory
 ```
 $ cd OpenLane
@@ -161,6 +161,34 @@ $ touch iiitb_rtc.v
 $ cd ../
 $ touch config.json
 ```
+
+<b>Config.json File</b>
+```
+{
+    "DESIGN_NAME": "iiitb_rtc",
+    "VERILOG_FILES": "dir::src/iiitb_rtc.v",
+    "CLOCK_PORT": "clkin",
+    "CLOCK_NET": "clkin",
+    "GLB_RESIZER_TIMING_OPTIMIZATIONS": true,
+    "CLOCK_PERIOD": 10,
+    "PL_TARGET_DENSITY": 0.7,
+    "FP_SIZING" : "relative",
+"LIB_SYNTH": "dir::src/sky130_fd_sc_hd__typical.lib",
+"LIB_FASTEST": "dir::src/sky130_fd_sc_hd__fast.lib",
+"LIB_SLOWEST": "dir::src/sky130_fd_sc_hd__slow.lib",
+"LIB_TYPICAL": "dir::src/sky130_fd_sc_hd__typical.lib",  
+"TEST_EXTERNAL_GLOB": "dir::../iiitb_rtc/src/*",
+"SYNTH_DRIVING_CELL":"sky130_vsdinv",
+    "pdk::sky130*": {
+        "FP_CORE_UTIL": 30,
+        "scl::sky130_fd_sc_hd": {
+            "FP_CORE_UTIL": 20
+        }
+    }
+   
+}
+```
+
 Including sky130_vsdinv cell to the design
 ```
 $ cd OpenLane
@@ -182,25 +210,101 @@ Preparing design
 ```
 % prep -design iiitb_rtc
 ``` 
-The following commands are to merge external the lef files to the merged.nom.lef. In our case sky130_vsdiat is getting merged to the lef file
+The following commands are to merge external the lef files to the merged.nom.lef. In our case sky130_vsdinv is getting merged to the lef file
 ```
 % set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 % add_lefs -src $lefs
 ```
-Synthesising design
+
+#### Synthesis
+Type the command on tickle after preparing design to synthesize design
 ```
 % run_synthesis
 ```
-Floorplan
+
+![syncom](https://user-images.githubusercontent.com/62790565/187274902-3ba5a0a7-893e-4d47-adf9-56ecad53328e.png)
+
+##### Synthesis Reports
+<b>Statistics</b>
+
+![stat](https://user-images.githubusercontent.com/62790565/187275078-b412a3be-b5b3-41d2-89e8-9c7e4a751fd2.png)
+
+Slack
+
+![slack](https://user-images.githubusercontent.com/62790565/187275299-de39ba00-ef9c-40fa-89b0-376cc530eb35.png)
+
+#### Floorplan
+Command to run the floorplan
 ```
 % run_floorplan
 ```
-Placement
+
+##### Floorplan Results
+Command to view floorplan on magic
+```
+magic -T /home/anusha/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read iiitb_rtc.def
+```
+![flopco](https://user-images.githubusercontent.com/62790565/187276193-6dc21eff-6678-49dc-bc29-68607016a92b.png)
+
+<b>Floorplan</b>
+
+![floorplan](https://user-images.githubusercontent.com/62790565/187277542-efa1a902-77ce-448f-b609-9af603e54a8a.png)
+
+![fpsky](https://user-images.githubusercontent.com/62790565/187277757-9cb43a1b-9e54-4deb-a073-868746971c5d.png)
+
+##### Floorplan Reports
+Core area
+
+![fpca](https://user-images.githubusercontent.com/62790565/187275874-930b4c49-3dc4-4675-aea3-d90717e15ae8.png)
+
+Die area
+
+![fpda](https://user-images.githubusercontent.com/62790565/187275930-36b7c347-15a1-4671-b87e-4cdd3192fe03.png)
+
+#### Placement
+Command to run placement
 ```
 % run_placement
 ```
+##### Placement results
+Command to view placement on magic
+```
+magic -T /home/anusha/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read iiitb_rtc.def
+```
+![placco](https://user-images.githubusercontent.com/62790565/187278366-76570ba9-1f95-4d9c-b92e-73b9931ac535.png)
+
+<b>Placement</b>
+
+![placement](https://user-images.githubusercontent.com/62790565/187278493-bf9799ec-0acd-4a74-85bb-fd90dd11d1d7.png)
+
+<b>Placement of sky130_vsdinv cell</b>
+
+![skyinvplac](https://user-images.githubusercontent.com/62790565/187278840-735dab7d-d975-4a7b-abd9-b45e8296db3b.png)
+
+#### Clock-tree synthesis
+Command to run clock-tree synthesis
+```
+run_cts
+```
+![ctsco](https://user-images.githubusercontent.com/62790565/187279140-583eedf4-70fa-45aa-8064-9837fa8e3d75.png)
+
+#### Routing
+Command to run routing
+```
+run_routing
+```
+
+![routingco](https://user-images.githubusercontent.com/62790565/187279411-d2b72951-6b70-43d0-8111-18379465004e.png)
+
+##### Routing results
+
+![routing](https://user-images.githubusercontent.com/62790565/187279891-4eaf0fcc-238e-44ca-9b87-3fe8333a8ba4.png)
+
+![routingzoomed](https://user-images.githubusercontent.com/62790565/187279974-323b1b38-f4db-403e-84b9-465524f7133c.png)
+
 #### Final Layout
-![Screenshot from 2022-08-25 15-09-40](https://user-images.githubusercontent.com/62790565/186632010-3d560626-15c9-40d9-8df4-679b5db0388e.png)
+
+![layout](https://user-images.githubusercontent.com/62790565/187280262-78517f4e-eae2-4bc0-a9e1-6fccaf9a977b.png)
 
 ## Contributors
 - Banda Anusha
