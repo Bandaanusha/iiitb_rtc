@@ -107,7 +107,7 @@ $ make test
 Additional packages to be installed as a part of system requirements to compile magic before magic installation.<br>
 ###### Installing M4 preprocessor
 ```
-sudo apt-get install m4
+$ sudo apt-get install m4
 ```
 ###### Installing tcsh shell
 ```
