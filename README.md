@@ -61,7 +61,7 @@ $ ./a.out
 $ gtkwave iiitb_rtc_out.vcd
 ```
 
-### Simulation Waveforms
+#### Simulation Waveforms
 Pre - synthesis simulation waveform:
 
 ![presyn](https://user-images.githubusercontent.com/62790565/185417571-75588e39-bbb1-4bf9-929b-20d38ed4f25f.png)
@@ -70,7 +70,7 @@ Post - synthesis simulation waveform:
 
 ![postsyn](https://user-images.githubusercontent.com/62790565/185417781-3eed70b0-5d92-44cd-92e6-99133e8887e7.png)
 
-### Physical Design
+### Layout
 #### Tool Installation
 ##### Installation of Python3
 ```
@@ -125,7 +125,7 @@ $ sudo apt-get install libx11-dev
 ```
 $ sudo apt-get install tcl-dev tk-dev
 ```
-###### Imstalling Cairo
+###### Installing Cairo
 ```
 $ sudo apt-get install libcairo2-dev
 ```
@@ -184,8 +184,8 @@ Preparing design
 ``` 
 The following commands are to merge external the lef files to the merged.nom.lef. In our case sky130_vsdiat is getting merged to the lef file
 ```
-set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
-add_lefs -src $lefs
+% set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+% add_lefs -src $lefs
 ```
 Synthesising design
 ```
