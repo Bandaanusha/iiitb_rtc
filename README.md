@@ -71,7 +71,7 @@ Post - synthesis simulation waveform:
 ![postsyn](https://user-images.githubusercontent.com/62790565/185417781-3eed70b0-5d92-44cd-92e6-99133e8887e7.png)
 
 ### Layout
-#### Tool Installation
+#### OpenLane and Magic Tool Installation
 ##### Installation of Python3
 ```
 $ sudo apt install -y build-essential python3 python3-venv python3-pip
@@ -301,6 +301,10 @@ run_routing
 ![routing](https://user-images.githubusercontent.com/62790565/187279891-4eaf0fcc-238e-44ca-9b87-3fe8333a8ba4.png)
 
 ![routingzoomed](https://user-images.githubusercontent.com/62790565/187279974-323b1b38-f4db-403e-84b9-465524f7133c.png)
+
+Routing of sky130_vsdinv cell
+
+![skyinvrouting](https://user-images.githubusercontent.com/62790565/187422212-b7edf108-50a8-4677-9062-d3177ce5aeb8.png)
 
 #### Final Layout
 
