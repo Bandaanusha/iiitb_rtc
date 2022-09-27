@@ -227,7 +227,7 @@ Type the command on tickle after preparing design to synthesize design
 ##### Synthesis Reports
 <b>Statistics</b>
 
-![stat](https://user-images.githubusercontent.com/62790565/187275078-b412a3be-b5b3-41d2-89e8-9c7e4a751fd2.png)
+![statex](https://user-images.githubusercontent.com/62790565/192561956-e25ef64c-b9de-4ca6-8f91-30149db280f4.png)
 
 Slack
 
@@ -310,6 +310,17 @@ Routing of sky130_vsdinv cell
 
 ![layout](https://user-images.githubusercontent.com/62790565/187280262-78517f4e-eae2-4bc0-a9e1-6fccaf9a977b.png)
 
+### Area, Power and Performance results
+#### Area
+
+![area](https://user-images.githubusercontent.com/62790565/192561503-8d60e87f-c426-4b3a-9425-e1ecccd5bddc.png)
+
+#### Power
+
+![power](https://user-images.githubusercontent.com/62790565/192561805-b07c0648-5c65-44ef-aa70-6214b7f78eb6.png)
+
+
+
 ## Contributors
 - Banda Anusha
 - Kunal Ghosh
@@ -317,7 +328,7 @@ Routing of sky130_vsdinv cell
 ## Acknowledgements
 - Kunal Ghosh, Director, VSD Corp. Pvt. Ltd.
 - Dantu Nandini Devi, Postgraduate Student, International Institute of Information Technology, Bangalore.
-- 
+
 ## Contact Information
 - Banda Anusha, Postgraduate Student, International Institute of Information Technology, Bangalore Banda.Anusha@iiitb.ac.in
 - Dantu Nandini Devi, Postgraduate Student, International Institute of Information Technology, Bangalore nandini.dantu@gmail.com
