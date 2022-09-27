@@ -319,6 +319,9 @@ Routing of sky130_vsdinv cell
 
 ![power](https://user-images.githubusercontent.com/62790565/192561805-b07c0648-5c65-44ef-aa70-6214b7f78eb6.png)
 
+#### Performance
+
+![sta](https://user-images.githubusercontent.com/62790565/192586476-57db3c3d-0747-4d1c-95e3-85ede6f46309.png)
 
 
 ## Contributors
@@ -343,4 +346,3 @@ Routing of sky130_vsdinv cell
 ## References
 - Real-Time Clocks (RTCC) ,Microchip technology,  https://www.microchip.com/en-us/products/clock-and-timing/components/real-time-clocks.
 - RTC Verilog Code - Elecdude, www.elecdude.com.
-
