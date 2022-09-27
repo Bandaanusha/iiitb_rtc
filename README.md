@@ -310,8 +310,8 @@ Routing of sky130_vsdinv cell
 
 ![layout](https://user-images.githubusercontent.com/62790565/187280262-78517f4e-eae2-4bc0-a9e1-6fccaf9a977b.png)
 
-### Area, Power and Performance results
-#### Post Synthesis statistics
+## Area, Power and Performance results
+### Post Synthesis statistics
 
 ![statflop](https://user-images.githubusercontent.com/62790565/192592334-30eaa4e1-f2fd-4dc5-bc0f-55c1bfd9613f.png)
 
@@ -320,15 +320,16 @@ Gate Count = 133
 Flop Ratio = Ratio of total number of flip flops / Total number of cells present in the design = 24/133 = 0.1804
 ```
 
-#### Area
+### Area
 
 ![area](https://user-images.githubusercontent.com/62790565/192561503-8d60e87f-c426-4b3a-9425-e1ecccd5bddc.png)
 
 ```
-**Area = 9941.292 um2
+Area = 9941.292 um2
+
 ```
 
-#### Power
+### Power
 
 ![power](https://user-images.githubusercontent.com/62790565/192561805-b07c0648-5c65-44ef-aa70-6214b7f78eb6.png)
 
@@ -336,15 +337,15 @@ Flop Ratio = Ratio of total number of flip flops / Total number of cells present
 Internal Power = 169.4 uW (73.8%)
 Switching Power = 601 uW (26.2%)
 Leakage Power = 0.934 nW (0.0%)
-Total Power = 229 uW (100%) 
+Total Power = 229 uW (100%)
 ```
 
-#### Performance
+### Performance
 
 ![sta](https://user-images.githubusercontent.com/62790565/192586476-57db3c3d-0747-4d1c-95e3-85ede6f46309.png)
 
 ```
-**Performance = 1/(clock period - slack) = 1/(10 - 2.71)ns = 137.17 Mhz** 
+Performance = 1/(clock period - slack) = 1/(10 - 2.71)ns = 137.17 Mhz 
 ```
 
 ## Contributors
