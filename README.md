@@ -324,15 +324,21 @@ Routing of sky130_vsdinv cell
 ## Contributors
 - Banda Anusha
 - Kunal Ghosh
+- Madhav Rao, Professor
+- Nanditha Rao, Professor
+
 
 ## Acknowledgements
 - Kunal Ghosh, Director, VSD Corp. Pvt. Ltd.
-- Dantu Nandini Devi, Postgraduate Student, International Institute of Information Technology, Bangalore.
+- Madhav Rao, Professor, IIITB 
+- Nanditha Rao, Professor, IIITB 
 
 ## Contact Information
 - Banda Anusha, Postgraduate Student, International Institute of Information Technology, Bangalore Banda.Anusha@iiitb.ac.in
 - Dantu Nandini Devi, Postgraduate Student, International Institute of Information Technology, Bangalore nandini.dantu@gmail.com
 - Kunal Ghosh, Director, VSD Corp. Pvt. Ltd. kunalghosh@gmail.com
+- Nanditha Rao, nanditha.rao@iiitb.ac.in
+- Madhav Rao, mr@iiitb.ac.in
 
 ## References
 - Real-Time Clocks (RTCC) ,Microchip technology,  https://www.microchip.com/en-us/products/clock-and-timing/components/real-time-clocks.
