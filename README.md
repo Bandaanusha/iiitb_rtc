@@ -334,7 +334,7 @@ Area = 9941.292 um2
 ![power](https://user-images.githubusercontent.com/62790565/192561805-b07c0648-5c65-44ef-aa70-6214b7f78eb6.png)
 
 ```
-Internal Power = 169.4 uW (73.8%)
+Internal Power = 169 uW (73.8%)
 Switching Power = 601 uW (26.2%)
 Leakage Power = 0.934 nW (0.0%)
 Total Power = 229 uW (100%)
